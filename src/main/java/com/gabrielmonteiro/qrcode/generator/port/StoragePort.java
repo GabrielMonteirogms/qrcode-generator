@@ -1,4 +1,4 @@
-package com.gabrielmonteiro.qrcode.generator.infrastructure;
+package com.gabrielmonteiro.qrcode.generator.port;
 
 public interface StoragePort {
 

@@ -29,7 +29,6 @@
 	<properties>
 		<java.version>21</java.version>
 		<google.zxing.version>3.5.2</google.zxing.version>
-		<aws.sdk.version>2.24.12</aws.sdk.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -52,7 +51,7 @@
 		<dependency>
 			<groupId>software.amazon.awssdk</groupId>
 			<artifactId>s3</artifactId>
-			<version>${aws.sdk.version}</version>
+			<version>2.24.12</version>
 		</dependency>
 
 		<dependency>
@@ -65,6 +64,16 @@
 			<groupId>com.google.zxing</groupId>
 			<artifactId>javase</artifactId>
 			<version>${google.zxing.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>http-auth-aws</artifactId>
+			<version>2.21.15</version>
+		</dependency>
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>http-auth-aws</artifactId>
+			<version>2.24.12</version>
 		</dependency>
 	</dependencies>
 
