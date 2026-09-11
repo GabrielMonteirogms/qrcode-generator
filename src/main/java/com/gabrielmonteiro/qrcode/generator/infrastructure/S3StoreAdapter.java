@@ -12,7 +12,7 @@ public class S3StoreAdapter implements StoragePort {
 
 
     private final S3Client s3Client;
-    private String bucketName;
+    private final String bucketName;
     private final String region;
 
 
