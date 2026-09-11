@@ -21,7 +21,6 @@ public class QrCodeController {
 
     @PostMapping
     public ResponseEntity<QrCodeGenerateResponse> generate(@RequestBody QrCodeGenerateRequest request) {
-
         try {
             QrCodeGenerateResponse response = this.qrCodeGenerateService.generateAndUploadCode(request.text());
                     return ResponseEntity.ok(response);

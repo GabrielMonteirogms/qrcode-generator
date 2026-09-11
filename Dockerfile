@@ -12,6 +12,6 @@ ARG AWS_ACCESS_KEY_ID
 ARG AWS_SECRET_ACCESS_KEY
 
 ENV AWS_REGION=sa-east-1
-ENV AWS_BUCKET_NAME=qr-code-generatorz
+ENV AWS_BUCKET_NAME=qrcode-stoarager
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
