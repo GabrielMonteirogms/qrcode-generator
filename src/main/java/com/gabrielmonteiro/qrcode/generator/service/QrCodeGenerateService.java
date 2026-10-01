@@ -1,6 +1,6 @@
 package com.gabrielmonteiro.qrcode.generator.service;
 
-import com.gabrielmonteiro.qrcode.generator.dto.QrCodeGenerateResponse;
+import com.gabrielmonteiro.qrcode.generator.dto.QrCodeGenerateResponseDto;
 import com.gabrielmonteiro.qrcode.generator.port.StoragePort;
 import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
@@ -21,7 +21,7 @@ public class QrCodeGenerateService {
             this.storage = storage;
 
         }
-        public QrCodeGenerateResponse generateAndUploadCode(String text) throws WriterException, IOException {
+        public QrCodeGenerateResponseDto generateAndUploadCode(String text) throws WriterException, IOException {
             //para passa o texto recebido em string e transforma-lo para qrcode
             QRCodeWriter qrCodeWriter = new QRCodeWriter();
             //gerar o qrcode em bytes, que transforma a na imagem do qrcode (encodar)
@@ -35,6 +35,6 @@ public class QrCodeGenerateService {
             //Upload to storage service
             String url = storage.uploadFile(pngQrCodeData, UUID.randomUUID().toString(), "image/png");
 
-            return new QrCodeGenerateResponse(url);
+            return new QrCodeGenerateResponseDto(url);
         }
 }

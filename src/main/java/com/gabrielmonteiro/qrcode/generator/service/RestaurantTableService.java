@@ -2,7 +2,7 @@ package com.gabrielmonteiro.qrcode.generator.service;
 
 import com.gabrielmonteiro.qrcode.generator.dto.RestaurantTableRequestDto;
 import com.gabrielmonteiro.qrcode.generator.dto.RestaurantTableResponseDto;
-import com.gabrielmonteiro.qrcode.generator.dto.QrCodeGenerateResponse;
+import com.gabrielmonteiro.qrcode.generator.dto.QrCodeGenerateResponseDto;
 import com.gabrielmonteiro.qrcode.generator.entities.RestaurantTable;
 import com.gabrielmonteiro.qrcode.generator.repositories.RestaurantTableRepository;
 import org.springframework.http.HttpStatus;
@@ -15,7 +15,7 @@ import java.util.List;
 public class RestaurantTableService {
 
     private final RestaurantTableRepository tableRepository;
-    private final QrCodeGenerateService qrCodeGenerateService; // Usando o seu serviço!
+    private final QrCodeGenerateService qrCodeGenerateService; // Usando serviço do qrocodeGenerator
 
     public RestaurantTableService(RestaurantTableRepository tableRepository, QrCodeGenerateService qrCodeGenerateService) {
         this.tableRepository = tableRepository;
@@ -34,7 +34,7 @@ public class RestaurantTableService {
 
         try {
             // gera o qrcode e faz upload para o S3
-            QrCodeGenerateResponse qrResponse = qrCodeGenerateService.generateAndUploadCode(frontendMenuUrl);
+            QrCodeGenerateResponseDto qrResponse = qrCodeGenerateService.generateAndUploadCode(frontendMenuUrl);
 
             // Salva no banco de dados com a URL que voltou do S3
             RestaurantTable table = new RestaurantTable(dto.tableNumber(), qrResponse.url());

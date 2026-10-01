@@ -1,6 +1,6 @@
 package com.gabrielmonteiro.qrcode.generator.controller;
-import com.gabrielmonteiro.qrcode.generator.dto.QrCodeGenerateRequest;
-import com.gabrielmonteiro.qrcode.generator.dto.QrCodeGenerateResponse;
+import com.gabrielmonteiro.qrcode.generator.dto.QrCodeGenerateRequestDto;
+import com.gabrielmonteiro.qrcode.generator.dto.QrCodeGenerateResponseDto;
 import com.gabrielmonteiro.qrcode.generator.service.QrCodeGenerateService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,9 +20,9 @@ public class QrCodeController {
 
 
     @PostMapping
-    public ResponseEntity<QrCodeGenerateResponse> generate(@RequestBody QrCodeGenerateRequest request) {
+    public ResponseEntity<QrCodeGenerateResponseDto> generate(@RequestBody QrCodeGenerateRequestDto request) {
         try {
-            QrCodeGenerateResponse response = this.qrCodeGenerateService.generateAndUploadCode(request.text());
+            QrCodeGenerateResponseDto response = this.qrCodeGenerateService.generateAndUploadCode(request.text());
                     return ResponseEntity.ok(response);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
